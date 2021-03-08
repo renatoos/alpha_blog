@@ -9,18 +9,12 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-   <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-
-    <!-- CSS Reset -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-
-    <!-- Milligram CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
-
   </head>
 
   <body>
+
+    <%= render 'layouts/navbar'%>
+
     <div class="container">
       <br/>
 
@@ -36,12 +30,13 @@
     <hr style="margin: 1.0rem 0;" />
       <br/><br/>
 
-      <div class="row">
+      <div class="row" >
        <div class="column" >
           <%= render 'layouts/messages' %>
           
 
           <%= yield %>
+          
       </div>
     </div>
     </div>
