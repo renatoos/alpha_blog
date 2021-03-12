@@ -1,8 +1,37 @@
-<h1>Show Article</h1>
+<section class="hero is-success">
+  <div class="hero-body">
+  <div class="container has-text-centered">
+    <p class="title">
+      Articles
+    </p>
+    <p class="subtitle">
+      Show Article
+    </p>
+  </div>
+  </div>
+</section>
 
-<p><storng>Title:</storng> <%= @article.title %> </p>
-<p><storng>Description:</storng> <%= @article.description %> </p>
+<br/>
 
- <%= link_to 'Edit', edit_article_path(@article), class: "button button-clear" %> | 
-<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "button button-clear"  %> | 
-<%= link_to 'Back to the list', articles_path, class: "button button-clear"%>
+<div class="container">
+
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      <%= @article.title %>
+    </p>
+
+  </header>
+  <div class="card-content">
+    <div class="content">
+     <%= @article.description %> 
+    </div>
+  </div>
+  <footer class="card-footer">
+    <%= link_to 'Edit', edit_article_path(@article), class: "card-footer-item" %> | 
+    <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "card-footer-item"  %> | 
+    <%= link_to 'Back to the list', articles_path, class: "card-footer-item"%>
+  </footer>
+</div>
+
+</div>

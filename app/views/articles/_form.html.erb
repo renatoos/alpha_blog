@@ -1,26 +1,66 @@
-<% if @article.errors.any? %>
-  <h4> The following errors prevent the article from being saved </h4>
-  <ul>
-  <% @article.errors.full_messages.each do |message| %>
-  <li> <%= message %> </li>
+<div class="container">
+
+  <% if @article.errors.any? %>
+
+ <div class="notification is-warning">
+  <button class="delete"></button>
+
+    <h4> The following errors prevent the article from being saved </h4>
+    <ul>
+    <% @article.errors.full_messages.each do |message| %>
+    <li> <%= message %> </li>
+    <% end %>
+    </ul>
+
+    </div>
   <% end %>
-  </ul>
-<% end %>
 
-<%= form_with(model: @article, local: true) do |f| %>
 
-<p> 
-  <%= f.label :title %> 
-  <%= f.text_field :title %>
-</p>
+<div class="columns">
+  <div class="column is-two-thirds">
+    
+     <%= form_with(model: @article, local: true) do |f| %>
 
-<p>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-</p>
+        <div class="field">
+          <%= f.label :title %> 
+          <div class="control">
+            <%= f.text_field :title, class: "input" %>
+          </div>
+          <p class="help">Insert the article title</p>
+        </div>
+          
+        <div class="field">
+          <%= f.label :description %> 
+          <div class="control">
+            <%= f.text_field :description, class: "textarea" %>
+          </div>
+          <p class="help">Insert the article description</p>
+        </div>
 
-<p>
-  <%= f.submit%>
-</p>
+        <p> 
+          <%= f.submit 'Save', class: 'button is-success' %>
+          <%= link_to 'Back to the list', articles_path, class: "button button-clear"%>
+        </p>
+        <% end %>
 
-<% end %>
+  </div>
+  <div class="column">
+
+  </div>
+
+</div>
+
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+    const $notification = $delete.parentNode;
+
+    $delete.addEventListener('click', () => {
+      $notification.parentNode.removeChild($notification);
+    });
+  });
+});
+</script>

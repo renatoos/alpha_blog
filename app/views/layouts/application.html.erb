@@ -12,33 +12,24 @@
   </head>
 
   <body>
-
     <%= render 'layouts/navbar'%>
-
-    <div class="container">
-      <br/>
-
-      <div class="row">
-        <div class="column"><h4>Alpha Blog</h4></div>
-        <div class="column"></div>
-        <div class="column"></div>
-        <div class="column"></div>
-        <div class="column"> <%= link_to 'Home', root_path %> </div>
-        <div class="column"> <%= link_to  'About', about_path%> </div>
-        <div class="column"> <%= link_to 'Articles', articles_path %> </div>
-      </div>
-    <hr style="margin: 1.0rem 0;" />
-      <br/><br/>
-
-      <div class="row" >
-       <div class="column" >
-          <%= render 'layouts/messages' %>
-          
-
-          <%= yield %>
-          
-      </div>
+        
+    <div >
+    
+      <%= render 'layouts/messages' %>
+      <%= yield %>
     </div>
+
+    <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Alpha Blog</strong> by <a href="#">Renato O.</a> The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+      </p>
     </div>
+  </footer>
+
+
   </body>
 </html>
