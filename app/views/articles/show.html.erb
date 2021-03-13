@@ -18,13 +18,18 @@
 <div class="card">
   <header class="card-header">
     <p class="card-header-title">
-      <%= @article.title %>
-    </p>
+      <%= @article.title %> 
+     </p>
 
   </header>
   <div class="card-content">
     <div class="content">
-     <%= @article.description %> 
+      <%= @article.description %> 
+      <br>
+      <br>
+      <span class="tag is-primary">
+        by <%= @article.user.username if @article.user %>
+      </span>
     </div>
   </div>
   <footer class="card-footer">

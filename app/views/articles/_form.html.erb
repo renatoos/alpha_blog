@@ -1,20 +1,6 @@
 <div class="container">
 
-  <% if @article.errors.any? %>
-
- <div class="notification is-warning">
-  <button class="delete"></button>
-
-    <h4> The following errors prevent the article from being saved </h4>
-    <ul>
-    <% @article.errors.full_messages.each do |message| %>
-    <li> <%= message %> </li>
-    <% end %>
-    </ul>
-
-    </div>
-  <% end %>
-
+<%= render 'shared/errors', obj: @article %>
 
 <div class="columns">
   <div class="column is-two-thirds">
@@ -52,15 +38,3 @@
 
 
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
-    const $notification = $delete.parentNode;
-
-    $delete.addEventListener('click', () => {
-      $notification.parentNode.removeChild($notification);
-    });
-  });
-});
-</script>

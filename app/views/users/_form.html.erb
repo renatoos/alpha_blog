@@ -1,22 +1,45 @@
-<%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="container">
 
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+
+  <%= render 'shared/errors', obj: @user %>
+
+  <%= form_with(model: user) do |form| %>
+
+  <div class="columns">
+    <div class="column is-two-thirds">
+
+      <div class="field">
+          <%= form.label :username %> 
+          <div class="control">
+            <%= form.text_field :username, class: "input" %>
+          </div>
+          <p class="help">Insert the username</p>
+      </div>
+
+      <div class="field">
+          <%= form.label :email %> 
+          <div class="control">
+            <%= form.email_field :email, class: "input" %>
+          </div>
+          <p class="help">Insert you email</p>
+      </div>
+
+      <div class="field">
+          <%= form.label :password %> 
+          <div class="control">
+            <%= form.password_field :password, class: "input" %>
+          </div>
+          <p class="help">Insert the password</p>
+      </div>
+
+        <p>
+          <%= form.submit 'Sign Up', class: 'button is-success' %>
+          <%= link_to 'Back', root_path, class: 'button is-light' %>
+        </p>
+    
     </div>
+  </div>
+    
   <% end %>
 
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
