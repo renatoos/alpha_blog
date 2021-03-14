@@ -33,7 +33,7 @@
       </div>
 
         <p>
-          <%= form.submit 'Sign Up', class: 'button is-success' %>
+          <%= form.submit(@user.new_record? ? 'Sign Up' : 'Update account', class: 'button is-success') %>
           <%= link_to 'Back', root_path, class: 'button is-light' %>
         </p>
     

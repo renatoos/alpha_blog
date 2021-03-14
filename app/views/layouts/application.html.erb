@@ -11,28 +11,16 @@
 
   </head>
 
-  <body>
+  <body class="content">
+
     <%= render 'layouts/navbar'%>
-        
-    <div >
+    <%= render 'layouts/messages' %>
+    <%= yield %>
     
-      <%= render 'layouts/messages' %>
-      <%= yield %>
-    </div>
-
     <br/>
     <br/>
 
-    <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
-        <strong>Alpha Blog</strong> by <a href="#">Renato O.</a> The source code is licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-      </p>
-    </div>
-  </footer>
-
-
+    <%= render 'layouts/footer' %>
+    
   </body>
 </html>
