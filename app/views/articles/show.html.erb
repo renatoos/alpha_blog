@@ -15,28 +15,24 @@
 
 <div class="container">
 
-<div class="card">
-  <header class="card-header">
-    <p class="card-header-title">
-      <%= @article.title %> 
-     </p>
 
-  </header>
-  <div class="card-content">
-    <div class="content">
-      <%= @article.description %> 
-      <br>
-      <br>
-      <span class="tag is-primary">
-        by <%= @article.user.username if @article.user %>
-      </span>
-    </div>
-  </div>
-  <footer class="card-footer">
-    <%= link_to 'Edit', edit_article_path(@article), class: "card-footer-item" %> | 
-    <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "card-footer-item"  %> | 
-    <%= link_to 'Back to the list', articles_path, class: "card-footer-item"%>
-  </footer>
-</div>
+<div class="columns">
+ 
+
+          <div class="column">
+            <div class="box">
+              <p class="title"><%= @article.title %> </p>
+              <p class="subtitle"><%= @article.description %> </p>
+              <p> by  <%= link_to @article.user.username , user_path(@article.user) %></p>
+
+              <%= link_to 'Edit', edit_article_path(@article), class: "button" %> 
+              <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "button"  %> 
+              <%= link_to 'Back to the list', articles_path, class: "card-footer-item"%>
+            </div>
+          </div>
+    
+<!-- final close columns -->
+ </div>
+
 
 </div>

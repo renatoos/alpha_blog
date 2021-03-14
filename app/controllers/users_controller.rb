@@ -33,9 +33,10 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
+
     if @user.update(user_params)
       flash[:notice] = 'You have sucessfully updated the user.'
-      redirect_to users_path
+      redirect_to @user
     else
       render :edit, status: :unprocessable_entity 
     end

@@ -21,11 +21,13 @@
           <figure class="image is-128x128">
             <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
           </figure>
+          
         </div>
 
         <div>
-          <p class="title"><%= @user.username %></p>
+          <h2><%= @user.username %></h2>
           <p class="heading"><%= @user.email %></p>
+          <%= link_to "Edit Profile", edit_user_path(@user), class: "button small is-info" %>
         </div>
     </div>
     <div class="level-item has-text-centered">
@@ -48,28 +50,7 @@
     </div>
   </nav>
 
-  <div class="columns">
-      <% @user.articles.each_with_index do |article, index|  %>
-
-  <% if index>0 && index%2==0 %>
-  <!-- internal close columns -->
-  </div>
-  <!-- new columns -->
-  <div class="columns">
-  <% end %>
-
-          <div class="column">
-            <div class="box">
-              <p class="title"><%= article.title %> </p>
-              <p class="subtitle"><%= article.description %> </p>
-              <%= link_to 'Edit', edit_article_path(article), class: "button" %> 
-              <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: "button"  %> 
-            </div>
-          </div>
-      <% end %>
-<!-- final close columns -->
- </div>
-
+  <%=render 'articles/articles', articles: @user.articles%>
   
 
 <!-- Closes DIV container -->      

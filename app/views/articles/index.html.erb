@@ -44,6 +44,14 @@
   </tbody>
 </table>
 
+<div class="level">
+  <div class="level-item has-text-centered">
+  <div class='flickr_pagination'>
+  <%= will_paginate @articles %>
+  </div>
+  </div>
+</div>
+  
 <%= link_to 'New article', new_article_path, class: "button" %>
 
 </div>

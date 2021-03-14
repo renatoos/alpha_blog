@@ -1,0 +1,21 @@
+  <div class="columns">
+      <% articles.each_with_index do |article, index|  %>
+
+  <% if index>0 && index%2==0 %>
+  <!-- internal close columns -->
+  </div>
+  <!-- new columns -->
+  <div class="columns">
+  <% end %>
+
+          <div class="column">
+            <div class="box">
+              <p class="title"><%= article.title %> </p>
+              <p class="subtitle"><%= article.description %> </p>
+              <%= link_to 'Edit', edit_article_path(article), class: "button" %> 
+              <%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: "button"  %> 
+            </div>
+          </div>
+      <% end %>
+<!-- final close columns -->
+ </div>
