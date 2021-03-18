@@ -27,7 +27,9 @@
         <div>
           <h2><%= @user.username %></h2>
           <p class="heading"><%= @user.email %></p>
-          <%= link_to "Edit Profile", edit_user_path(@user), class: "button small is-info" %>
+          <% if logged_in? && @user == current_user %>
+            <%= link_to "Edit Profile", edit_user_path(@user), class: "button small is-info" %>
+          <% end %>
         </div>
     </div>
     <div class="level-item has-text-centered">

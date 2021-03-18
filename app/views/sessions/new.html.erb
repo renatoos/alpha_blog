@@ -1,0 +1,49 @@
+<section class="hero is-light">
+  <div class="hero-body">
+  <div class="container has-text-centered">
+    <p class="title">
+      Login
+    </p>
+    <p class="subtitle">
+      Access your account
+    </p>
+  </div>
+  </div>
+</section>
+
+<div class="container">
+
+<br/>
+
+
+  <%= form_with(scope: :session, url: login_path, class: "form") do |form| %>
+
+  <div class="columns is-centered">
+    <div class="column is-two-thirds">
+
+
+      <div class="field">
+          <%= form.label :email %> 
+          <div class="control">
+            <%= form.email_field :email, class: "input", placeholder: "Enter your email" %>
+          </div>
+      </div>
+
+      <div class="field">
+          <%= form.label :password %> 
+          <div class="control">
+            <%= form.password_field :password, class: "input", placeholder: "Enter your password" %>
+          </div>
+      </div>
+
+        <p>
+          <%= form.submit 'Log In', class: 'button is-success' %>
+          <%= link_to 'Cancel', root_path, class: 'button is-light' %>
+        </p>
+    
+    </div>
+  </div>
+    
+  <% end %>
+
+</div>
