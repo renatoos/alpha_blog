@@ -27,7 +27,7 @@
         <div>
           <h2><%= @user.username %></h2>
           <p class="heading"><%= @user.email %></p>
-          <% if logged_in? && @user == current_user %>
+          <% if logged_in? && (@user == current_user || current_user.admin?) %>
             <%= link_to "Edit Profile", edit_user_path(@user), class: "button small is-info" %>
           <% end %>
         </div>

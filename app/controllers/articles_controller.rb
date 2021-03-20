@@ -37,7 +37,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    @article.user = current_user
+    # @article.user = current_user
     if @article.update(article_params)
       flash[:notice] = 'Article was updated succesfully'
       redirect_to article_path(@article)
@@ -63,7 +63,7 @@ class ArticlesController < ApplicationController
   end
 
   def require_same_user
-    if current_user  != @article.user
+    if current_user != @article.user && !current_user.admin?
       flash[:alert] = 'You can only editor delete your own articles'
       redirect_to @article
     end

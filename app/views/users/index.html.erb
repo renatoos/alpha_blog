@@ -31,10 +31,10 @@
                         <p class="image is-128x1s8">
                           <img src="https://bulma.io/images/placeholders/128x128.png">
                         </p>
-                        <%= link_to 'View Profile', user , class: "button is-small" %>
-                        <% if logged_in? && user == current_user %>
-                            <%= link_to 'Edit Profile', edit_user_path(user), class: "button is-small" %> 
-                            <%= link_to 'Delete', user_path(user), method: :delete, data: { confirm: "Are you sure?" }, class: "button is-small"  %> 
+                        <%= link_to 'View Profile', user , class: "button is-small is-primary" %>
+                        <% if logged_in? && (user == current_user || current_user.admin?) %>
+                            <%= link_to 'Edit Profile', edit_user_path(user), class: "button is-small is-success" %> 
+                            <%= link_to 'Delete', user_path(user), method: :delete, data: { confirm: "Are you sure?" }, class: "button is-small is-danger"  %> 
                           <% end %>
                 
                       </figure>

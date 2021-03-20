@@ -25,7 +25,7 @@
               <p class="subtitle"><%= @article.description %> </p>
               <p> by  <%= link_to @article.user.username , user_path(@article.user) %></p>
 
-            <% if logged_in? && @article.user == current_user %>
+            <% if logged_in? && ( @article.user == current_user || current_user.admin? ) %>
               <%= link_to 'Edit', edit_article_path(@article), class: "button" %> 
               <%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: "button"  %> 
             <% end %>

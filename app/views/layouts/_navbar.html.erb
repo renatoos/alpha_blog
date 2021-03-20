@@ -46,7 +46,7 @@
         <span class="icon is-large">
           <ion-icon name="person-circle-outline"></ion-icon>
           </span>
-          <%= current_user.username %>
+          <%= "(Admin)" if current_user.admin %>   <%= current_user.username %>
           
         </a>
 
